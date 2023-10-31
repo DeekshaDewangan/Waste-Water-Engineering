@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeded BOD Calculator</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seeded BOD Calculator</h1>
+        <form id="bodForm">
+            <label for="initialDOReference">Initial D.O of Reference Sample (mg/L):</label>
+            <input type="number" id="initialDOReference" step="0.01" required><br><br>
+
+
+            <label for="day5DOReference">5 Day D.O of Reference Sample (mg/L):</label>
+            <input type="number" id="day5DOReference" step="0.01" required><br><br>
+
+
+            <label for="initialDOSeed">Initial D.O of Seed Material (mg/L):</label>
+            <input type="number" id="initialDOSeed" step="0.01" required><br><br>
+
+
+            <label for="day5DOSeed">5 Day D.O of Seed Material (mg/L):</label>
+            <input type="number" id="day5DOSeed" step="0.01" required><br><br>
+
+
+            <label for="volumeReference">Volume Used of Reference Sample (mL):</label>
+            <input type="number" id="volumeReference" required><br><br>
+
+
+            <label for="volumeSeed">Volume Used of Seed Material (mL):</label>
+            <input type="number" id="volumeSeed" required><br><br>
+
+
+            <label for="bottleVolume">Volume of Bottle (mL):</label>
+            <input type="number" id="bottleVolume" required><br><br>
+
+
+            <button type="button" onclick="calculateSeededBOD()">Calculate Seeded BOD</button><br><br>
+
+
+            <div id="result"></div>
+        </form>
+    </div>
+
+
+    <script>
+        function calculateSeededBOD() {
+            const initialDOReference = parseFloat(document.getElementById('initialDOReference').value);
+            const day5DOReference = parseFloat(document.getElementById('day5DOReference').value);
+            const initialDOSeed = parseFloat(document.getElementById('initialDOSeed').value);
+            const day5DOSeed = parseFloat(document.getElementById('day5DOSeed').value);
+            const volumeReference = parseFloat(document.getElementById('volumeReference').value);
+            const volumeSeed = parseFloat(document.getElementById('volumeSeed').value);
+            const bottleVolume = parseFloat(document.getElementById('bottleVolume').value);
+            const resultElement = document.getElementById('result');
+
+
+            if (initialDOReference > 1 && day5DOReference > 1 && initialDOSeed > 1 && day5DOSeed > 1 && (initialDOReference - day5DOReference) > 2 && (initialDOSeed - day5DOSeed) > 2) {
+                const D1 = (initialDOReference - day5DOReference);
+                const D2 = (initialDOSeed - day5DOSeed) / volumeSeed;
+                const seededBOD = ((D1 - D2) * bottleVolume) / volumeReference;
+                resultElement.innerHTML = `Seeded BOD: ${seededBOD.toFixed(2)} mg/L`;
+            } else {
+                resultElement.innerHTML = "Conditions not met for Seeded BOD calculation. Suggestion: Please Check values for Initial and Final D.O ";
+            }
+        }
+    </script>
+</body>
+</html>
+
