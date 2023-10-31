@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Specific Growth Rate Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>μ as a function of μmax</h1>
+    <header>μ as a function of μmax</header>
+    <main class="container">
         <form id="growthRateForm">
-            <label for="substrateConcentration">Conc. of growth limiting substrate (mg/L) (S):</label>
-            <input type="number" id="substrateConcentration" step="0.01" required><br><br>
+            <article>
+                <label for="substrateConcentration">Conc. of growth limiting substrate (mg/L) (S):</label>
+                <input type="number" id="substrateConcentration" step="0.01" required>
+            </article>
 
-
-            <label for="halfVelocityConstant">Half-velocity constant (mg/L) (Ks):</label>
-            <input type="number" id="halfVelocityConstant" step="0.01" required><br><br>
+            <article>
+                <label for="halfVelocityConstant">Half-velocity constant (mg/L) (Ks):</label>
+                <input type="number" id="halfVelocityConstant" step="0.01" required>
+            </article>
 
 
             <button type="button" onclick="calculateGrowthRate()">Calculate μ as a function of μmax</button><br><br>
 
-
-            <div id="result"></div>
+            <article>
+                <div class="result" id="result"></div>
+            </article>
         </form>
-    </div>
+    </main>
 
 
     <script>
@@ -56,4 +57,5 @@
         }
     </script>
 </body>
+
 </html>

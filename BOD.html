@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOD Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>BOD Calculator</h1>
+    <header>BOD Calculator</header>
+    <main class="container">
         <form id="bodForm">
-            <label for="initialDO">Initial Sample D.O (mg/L):</label>
-            <input type="number" id="initialDO" step="0.01" required><br><br>
+            <article>
+                <label for="initialDO">Initial Sample D.O (mg/L):</label>
+                <input type="number" id="initialDO" step="0.01" required>
+            </article>
 
+            <article>
+                <label for="day5DO">5 Day Sample D.O (mg/L):</label>
+                <input type="number" id="day5DO" step="0.01" required>
+            </article>
 
-            <label for="day5DO">5 Day Sample D.O (mg/L):</label>
-            <input type="number" id="day5DO" step="0.01" required><br><br>
+            <article>
+                <label for="sampleVolume">Volume of Sample in Bottle (mL):</label>
+                <input type="number" id="sampleVolume" required>
+            </article>
 
-
-            <label for="sampleVolume">Volume of Sample in Bottle (mL):</label>
-            <input type="number" id="sampleVolume" required><br><br>
-
-
-            <label for="bottleVolume">Volume of Bottle (mL):</label>
-            <input type="number" id="bottleVolume" required><br><br>
+            <article>
+                <label for="bottleVolume">Volume of Bottle (mL):</label>
+                <input type="number" id="bottleVolume" required>
+            </article>
 
 
             <button type="button" onclick="calculateBOD()">Calculate BOD</button><br><br>
 
-
-            <div id="result"></div>
+            <article>
+                <div class="result" id="result"></div>
+            </article>
         </form>
-    </div>
+    </main>
 
 
     <script>
@@ -52,13 +55,20 @@
             const resultElement = document.getElementById('result');
 
 
-            if (initialDO > 1 && day5DO > 1 && (initialDO - day5DO) > 2) {
+            if (initialDO >= 1 && day5DO >= 1 && (initialDO - day5DO) >= 2) {
                 const bodValue = ((initialDO - day5DO) * bottleVolume) / sampleVolume;
                 resultElement.innerHTML = `BOD: ${bodValue.toFixed(2)} mg/L`;
-            } else {
-                resultElement.innerHTML = "Conditions not met for BOD calculation. \n                      Suggestion: please check Initial and day 5 DO value";
+            } else if (day5DO < 1) {
+                resultElement.innerHTML = "Minimum 5 Day DO must be greater than or equal to 1.0 mg/L. \n";
+            }
+            else if ((initialDO - day5DO) < 2 && (initialDO - day5DO) > 0) {
+                resultElement.innerHTML = "Minimum depletion (or Initial Do - 5 Day DO) must be greater than or equal to 2.0 mg/L. \n ";
+            }
+            else {
+                resultElement.innerHTML = "Values provided are incorrect please recheck the values. \n";
             }
         }
     </script>
 </body>
+
 </html>

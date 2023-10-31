@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydraulic Retention Time (HRT) Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Hydraulic Retention Time (HRT)</h1>
+    <main class="container">
+        <header>Hydraulic Retention Time (HRT)</header>
         <form id="hrtForm">
-            <label for="liquidVolume">Volume of Liquid in the System (m³):</label>
-            <input type="number" id="liquidVolume" step="0.01" required><br><br>
+            <article>
+                <label for="liquidVolume">Volume of Liquid in the System (m³):</label>
+                <input type="number" id="liquidVolume" step="0.01" required>
+            </article>
 
-
-            <label for="liquidRemovedPerTime">Volume of Liquid Removed per Unit Time (m³/d):</label>
-            <input type="number" id="liquidRemovedPerTime" step="0.01" required><br><br>
+            <article>
+                <label for="liquidRemovedPerTime">Volume of Liquid Removed per Unit Time (m³/d):</label>
+                <input type="number" id="liquidRemovedPerTime" step="0.01" required>
+            </article>
 
 
             <button type="button" onclick="calculateHRT()">Calculate HRT</button><br><br>
 
-
-            <div id="result"></div>
+            <article>
+                <div class="result" id="result"></div>
+            </article>
         </form>
-    </div>
+    </main>
 
 
     <script>
@@ -55,4 +56,5 @@
         }
     </script>
 </body>
+
 </html>

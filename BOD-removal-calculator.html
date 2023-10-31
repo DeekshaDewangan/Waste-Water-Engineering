@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOD Removal Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>BOD Removal</h1>
-        <h2>Soluble BOD Concentration in Each Stage</h2>
+    <header>BOD Removal</header>
+    <main class="container">
         <form id="bodRemovalForm">
-            <label for="initialConcentration">sBOD Concentration in stage n (mg/L):</label>
-            <input type="number" id="initialConcentration" step="0.01" required><br><br>
+            <p>Soluble BOD Concentration in Each Stage</p>
+            <article>
+                <label for="initialConcentration">sBOD Concentration in stage n (mg/L):</label>
+                <input type="number" id="initialConcentration" step="0.01" required>
+            </article>
+            <article>
+                <label for="diskSurfaceArea">Disk Surface Area on stage n (m²):</label>
+                <input type="number" id="diskSurfaceArea" step="0.01" required>
+            </article>
 
-            <label for="diskSurfaceArea">Disk Surface Area on stage n (m²):</label>
-            <input type="number" id="diskSurfaceArea" step="0.01" required><br><br>
+            <article>
+                <label for="flowRate">Flowrate (m³/d):</label>
+                <input type="number" id="flowRate" step="0.01" required>
+            </article>
 
-            <label for="flowRate">Flowrate (m³/d):</label>
-            <input type="number" id="flowRate" step="0.01" required><br><br>
-
-            <label for="numStages">Number of Stages (n):</label>
-            <input type="number" id="numStages" required><br><br>
+            <article>
+                <label for="numStages">Number of Stages (n):</label>
+                <input type="number" id="numStages" required>
+            </article>
 
             <button type="button" onclick="calculateBODRemoval()">Calculate BOD Removal</button><br><br>
-
-            <div id="bodRemovalResult"></div>
+            <article>
+                <div class="result" id="bodRemovalResult"></div>
+            </article>
         </form>
-    </div>
+    </main>
 
     <script>
         function calculateBODRemoval() {
@@ -61,4 +66,5 @@
         }
     </script>
 </body>
+
 </html>

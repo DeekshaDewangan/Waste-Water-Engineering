@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seeded BOD Calculator</title>
-    <style>
-         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Seeded BOD Calculator</h1>
+    <header>Seeded BOD Calculator</header>
+    <main class="container">
         <form id="bodForm">
-            <label for="initialDOReference">Initial D.O of Reference Sample (mg/L):</label>
-            <input type="number" id="initialDOReference" step="0.01" required><br><br>
+            <article>
+                <label for="initialDOReference">Initial D.O of Reference Sample (mg/L):</label>
+                <input type="number" id="initialDOReference" step="0.01" required>
+            </article>
 
+            <article>
+                <label for="day5DOReference">5 Day D.O of Reference Sample (mg/L):</label>
+                <input type="number" id="day5DOReference" step="0.01" required>
+            </article>
 
-            <label for="day5DOReference">5 Day D.O of Reference Sample (mg/L):</label>
-            <input type="number" id="day5DOReference" step="0.01" required><br><br>
+            <article>
+                <label for="initialDOSeed">Initial D.O of Seed Material (mg/L):</label>
+                <input type="number" id="initialDOSeed" step="0.01" required>
+            </article>
 
+            <article>
+                <label for="day5DOSeed">5 Day D.O of Seed Material (mg/L):</label>
+                <input type="number" id="day5DOSeed" step="0.01" required><br><br>
+            </article>
 
-            <label for="initialDOSeed">Initial D.O of Seed Material (mg/L):</label>
-            <input type="number" id="initialDOSeed" step="0.01" required><br><br>
+            <article>
+                <label for="volumeReference">Volume Used of Reference Sample (mL):</label>
+                <input type="number" id="volumeReference" required>
+            </article>
 
+            <article>
+                <label for="volumeSeed">Volume Used of Seed Material (mL):</label>
+                <input type="number" id="volumeSeed" required>
+            </article>
 
-            <label for="day5DOSeed">5 Day D.O of Seed Material (mg/L):</label>
-            <input type="number" id="day5DOSeed" step="0.01" required><br><br>
-
-
-            <label for="volumeReference">Volume Used of Reference Sample (mL):</label>
-            <input type="number" id="volumeReference" required><br><br>
-
-
-            <label for="volumeSeed">Volume Used of Seed Material (mL):</label>
-            <input type="number" id="volumeSeed" required><br><br>
-
-
-            <label for="bottleVolume">Volume of Bottle (mL):</label>
-            <input type="number" id="bottleVolume" required><br><br>
+            <article>
+                <label for="bottleVolume">Volume of Bottle (mL):</label>
+                <input type="number" id="bottleVolume" required>
+            </article>
 
 
             <button type="button" onclick="calculateSeededBOD()">Calculate Seeded BOD</button><br><br>
 
-
-            <div id="result"></div>
+            <article>
+                <div class="result" id="result"></div>
+            </article>
         </form>
-    </div>
+    </main>
 
 
     <script>
@@ -78,5 +84,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>

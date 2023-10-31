@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COD Calculation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>COD Calculation</h1>
+    <header>COD Calculation</header>
+    <main class="container">
         <form id="codForm">
-            <label for="titrantAddedToBlank">Amount of Titrant Added to Blank (mL):</label>
-            <input type="number" id="titrantAddedToBlank" step="0.01" required><br><br>
+            <article>
+                <label for="titrantAddedToBlank">Amount of Titrant Added to Blank (mL):</label>
+                <input type="number" id="titrantAddedToBlank" step="0.01" required>
+            </article>
 
+            <article>
+                <label for="titrantAddedToSample">Amount of Titrant Added to Sample (mL):</label>
+                <input type="number" id="titrantAddedToSample" step="0.01" required>
+            </article>
 
-            <label for="titrantAddedToSample">Amount of Titrant Added to Sample (mL):</label>
-            <input type="number" id="titrantAddedToSample" step="0.01" required><br><br>
+            <article>
+                <label for="sampleVolume">Volume of Sample (mL):</label>
+                <input type="number" id="sampleVolume" step="0.01" required>
+            </article>
 
-
-            <label for="sampleVolume">Volume of Sample (mL):</label>
-            <input type="number" id="sampleVolume" step="0.01" required><br><br>
-
-
-            <label for="normality">Normality of Fe(NH4)2(SO4)2:</label>
-            <input type="number" id="normality" step="0.01" required><br><br>
+            <article>
+                <label for="normality">Normality of Fe(NH4)2(SO4)2:</label>
+                <input type="number" id="normality" step="0.01" required>
+            </article>
 
 
             <button type="button" onclick="calculateCOD()">Calculate COD</button><br><br>
 
-
-            <div id="result"></div>
+            <article>
+                <div class="result" id="result"></div>
+            </article>
         </form>
-    </div>
+    </main>
 
 
     <script>
@@ -65,4 +68,5 @@
         }
     </script>
 </body>
+
 </html>
