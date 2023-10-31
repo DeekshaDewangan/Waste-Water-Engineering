@@ -73,13 +73,22 @@
             const resultElement = document.getElementById('result');
 
 
-            if (initialDOReference > 1 && day5DOReference > 1 && initialDOSeed > 1 && day5DOSeed > 1 && (initialDOReference - day5DOReference) > 2 && (initialDOSeed - day5DOSeed) > 2) {
+            if (day5DOReference >= 1 && day5DOSeed >= 1 && (initialDOReference - day5DOReference) >= 2 && initialDOSeed > day5DOSeed) {
                 const D1 = (initialDOReference - day5DOReference);
                 const D2 = (initialDOSeed - day5DOSeed) / volumeSeed;
                 const seededBOD = ((D1 - D2) * bottleVolume) / volumeReference;
                 resultElement.innerHTML = `Seeded BOD: ${seededBOD.toFixed(2)} mg/L`;
-            } else {
-                resultElement.innerHTML = "Conditions not met for Seeded BOD calculation. Suggestion: Please Check values for Initial and Final D.O ";
+            } else if(day5DOReference < 1) {
+                resultElement.innerHTML = "Minimum 5 Day DO must be greater than or equal to 1 mg/L ";
+            }
+            else if(day5DOSeed < 1) {
+                resultElement.innerHTML = "Minimum 5 Day seeded DO must be greater than or equal to 1 mg/L ";
+            }
+            else if((initialDOReference - day5DOReference) < 2) {
+                resultElement.innerHTML = "Minimum depletion (or Initial DO - 5 Day DO) must be greater than or equal to 2 mg/L ";
+            }
+            else{
+                resultElement.innerHTML = "Values provided are incorrect please recheck the values. \n";
             }
         }
     </script>
