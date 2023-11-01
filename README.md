@@ -62,6 +62,6 @@ Our website covers a range of waste water engineering formulas, including but no
 
 ## Contribution
 
-If you are passionate about wastewater engineering and wish to contribute to this project, we welcome your involvement. Whether you are a subject matter expert, developer, or designer, there are various ways to get involved. Visit the "Contribute" section on our website to learn more about how you can contribute to this initiative.
+If you are passionate about wastewater engineering and wish to contribute to this project, we welcome your involvement. Whether you are a subject matter expert, developer, or designer, there are various ways to get involved. 
 
 Thank you for choosing the Waste Water Engineering Formula Calculator Website! We hope this tool becomes your go-to resource for all your waste water engineering calculations, making your academic and professional journey more efficient. Happy calculating!
